@@ -25,24 +25,34 @@ module.exports = {
   // },
 
   someObjsContainProp: (arr, prop) => {
-    for(var i = 0; i < arr.length; i++){
-      if(arr[i].hasOwnProperty(prop)){
-        return true;
-      }
-    }
-    return false;
+    return arr.some(function(element, index, array) {
+      return element.hasOwnProperty(prop);
+    });
   },
+  // someObjsContainProp: (arr, prop) => {
+  //   for(var i = 0; i < arr.length; i++){
+  //     if(arr[i].hasOwnProperty(prop)){
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // },
 
   convertNameArrayToObject: (arr) => {
-    let nameObj = [];
-    for(var i = 0; i < arr.length; i++){
-      let obj = {};
-      obj.first = arr[i][0];
-      obj.last = arr[i][1];
-      nameObj.push(obj);
-    }
-    return nameObj;
+    return arr.map(function(element, index) {
+      return {first: element[0], last:element[1]}
+    })
   },
+  // convertNameArrayToObject: (arr) => {
+  //   let nameObj = [];
+  //   for(var i = 0; i < arr.length; i++){
+  //     let obj = {};
+  //     obj.first = arr[i][0];
+  //     obj.last = arr[i][1];
+  //     nameObj.push(obj);
+  //   }
+  //   return nameObj;
+  // },
 
   objContainsProp: (arr, prop) => {
     for (var i = 0; i < arr.length; i++){
