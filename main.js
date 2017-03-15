@@ -11,14 +11,18 @@ Run the command 'mocha' to test. Tests check for expected output and absence of 
 */
 
 module.exports = {
-
   sum: (arr, base) => {
-    let sum = base;
-    for (var i = 0; i < arr.length; i++){
-      sum += arr[i];
-    }
-    return sum;
+    return arr.reduce(function(sum,val) {
+      return sum + val;
+    }, base);
   },
+  // sum: (arr, base) => {
+  //   let sum = base;
+  //   for (var i = 0; i < arr.length; i++){
+  //     sum += arr[i];
+  //   }
+  //   return sum;
+  // },
 
   someObjsContainProp: (arr, prop) => {
     for(var i = 0; i < arr.length; i++){
