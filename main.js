@@ -55,21 +55,31 @@ module.exports = {
   // },
 
   objContainsProp: (arr, prop) => {
-    for (var i = 0; i < arr.length; i++){
-      if(!arr[i].hasOwnProperty(prop)){
-        return false;
-      }
-    }
-    return true;
+    return arr.every(function(element, index, arr) {
+      return element.hasOwnProperty(prop);
+    });
   },
+  // objContainsProp: (arr, prop) => {
+  //   for (var i = 0; i < arr.length; i++){
+  //     if(!arr[i].hasOwnProperty(prop)){
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // },
 
   stringMatch: (arr, str) => {
-    let matches = [];
-    for(var i = 0; i < arr.length; i++){
-      if (arr[i].includes(str)){
-        matches.push(arr[i]);
-      }
-    }
-    return matches;
+    return arr.filter(function(element, index, arr) {
+      return element.includes(str);
+    });
   },
+  // stringMatch: (arr, str) => {
+  //   let matches = [];
+  //   for(var i = 0; i < arr.length; i++){
+  //     if (arr[i].includes(str)){
+  //       matches.push(arr[i]);
+  //     }
+  //   }
+  //   return matches;
+  // },
 };
